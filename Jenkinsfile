@@ -36,6 +36,12 @@ pipeline {
           }
         }
 
+        stage('test') {
+          steps {
+            sh 'ci/unit-test-app.sh'
+          }
+        }
+
       }
     }
 
