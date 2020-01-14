@@ -45,7 +45,10 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('error') {
+      environment {
+        DOCKERCREDS = credentials('docker_login')
+      }
       steps {
         sh '''unstash \'code\' //unstash the repository code
       sh \'ci/build-docker\'
