@@ -2,6 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Clone down') {
+      agent {
+        label 'host'
+      }
       steps {
         sh 'echo "hello clone down"'
         stash 'code'
@@ -22,6 +25,9 @@ pipeline {
               image 'gradle:jdk11'
             }
 
+          }
+          options {
+            skipDefaultCheckout(true)
           }
           steps {
             sh 'ci/build-app.sh'
