@@ -1,6 +1,12 @@
 pipeline {
   agent any
   stages {
+    stage('Clone down') {
+      steps {
+        sh 'echo "hello clone down"'
+      }
+    }
+
     stage('Hello UKH') {
       parallel {
         stage('Hello UKH') {
