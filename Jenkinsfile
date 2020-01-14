@@ -33,11 +33,6 @@ pipeline {
             sh 'ci/build-app.sh'
             archiveArtifacts 'app/build/libs/'
             deleteDir()
-          }
-        }
-
-        stage('test') {
-          steps {
             sh 'ci/unit-test-app.sh'
           }
         }
